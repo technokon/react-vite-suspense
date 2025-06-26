@@ -6,11 +6,10 @@ import { NameInput } from "./components/NameInput.jsx";
 import { Weather } from "./components/Weather.jsx";
 import { Suspense } from "react";
 import { Loader } from "./components/Loader.jsx";
-import { useContext } from "react";
-import { ThemingContext } from "./theming/context.js";
+import { useTheme } from "./theming/Theme.jsx";
 
 function App() {
-  const { theme, toggle } = useContext(ThemingContext);
+  const { theme, toggle } = useTheme();
   const [count, setCount] = useState(0);
 
   return (
