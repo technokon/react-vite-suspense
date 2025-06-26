@@ -13,12 +13,7 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div
-      style={{
-        backgroundColor: theme === "light" ? "white" : "black",
-        color: theme === "light" ? "black" : "white",
-      }}
-    >
+    <div>
       <button onClick={toggle}>{theme}</button>
       <div>
         <a href="https://vitejs.dev" target="_blank">
@@ -37,7 +32,10 @@ function App() {
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
-      <p className="read-the-docs">
+      <p
+        className="read-the-docs"
+        style={{ color: theme === "dark" ? "white" : null }}
+      >
         Click on the Vite and React logos to learn more
       </p>
       <NameInput></NameInput>
