@@ -6,12 +6,21 @@ import { NameInput } from "./components/NameInput.jsx";
 import { Weather } from "./components/Weather.jsx";
 import { Suspense } from "react";
 import { Loader } from "./components/Loader.jsx";
+import { useContext } from "react";
+import { ThemingContext } from "./theming/context.js";
 
 function App() {
+  const { theme, toggle } = useContext(ThemingContext);
   const [count, setCount] = useState(0);
 
   return (
-    <>
+    <div
+      style={{
+        backgroundColor: theme === "light" ? "white" : "black",
+        color: theme === "light" ? "black" : "white",
+      }}
+    >
+      <button onClick={toggle}>{theme}</button>
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -36,7 +45,7 @@ function App() {
       <Suspense fallback={<Loader />}>
         <Weather />
       </Suspense>
-    </>
+    </div>
   );
 }
 
